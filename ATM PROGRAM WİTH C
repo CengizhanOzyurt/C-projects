@@ -1,0 +1,155 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define islemucreti 2
+#define dolarkuru 18.6416
+#define eurokuru 19.6718
+#define graltin 1081.81
+#define bakiye 132453
+int paracek(float x){
+	float kalan;
+	kalan=bakiye-x;
+	return kalan;
+}
+int parayat(float x){
+	float kalan;
+	kalan=bakiye+(x);
+	return kalan;
+}
+int eft(int x){
+	float kalan;
+	kalan=bakiye-(x+islemucreti);
+	return kalan;
+}
+int havale(int x){
+	float kalan;
+	kalan=bakiye-(x);
+	return kalan;
+}
+int dolaryatirim(int x){
+	
+	float kalan,yatirim;
+	kalan=bakiye-(x*dolarkuru);
+	return kalan;
+}
+int euroyatirim(int x){
+	float kalan,yatirim;
+	kalan=bakiye-(x*eurokuru);
+	return kalan;
+}
+int gryatirim(int x){
+	float kalan,yatirim;
+	kalan=bakiye-(x*graltin);
+	return kalan;
+}
+int main() {
+	
+	printf("\n**************MEDENIYET BANK**************\n\n\n\n\n");
+	printf("             -HOS GELDINIZ!-\n");
+	int islem,bankasec,hesapno,sifre;
+	float x,kalan=0,yatirim=0;
+	printf("Lutfen 4 haneli sifrenizi giriniz:\n");
+	scanf("%d",&sifre);
+	
+	printf("\nYapacaginiz islemi seciniz:\n");
+	printf("1-Para Cekme\n2-Para Yatirma\n3-Eft\n4-Havale\n5-Dolar ($) Yatirimi\n6-Euro Yatirimi\n7-Gram Altin Yatirimi\n8-Bakiye Sorgu\n9-Cikis\n");
+	scanf("%d",&islem);
+	do{
+	    if(islem==1){
+			printf("Cekmek istediginiz miktari giriniz:");
+			scanf("%f",&x);
+			printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",paracek(x));
+			
+		}
+		else if(islem==2){
+			printf("Yatirmak istediginiz miktari giriniz:");
+			scanf("%f",&x);
+			printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",parayat(x));
+			
+		}
+		else if(islem==3){
+			printf("Eft yapmak istediginiz bankayi giriniz:\n(UYARI:Yapacaginiz hesap hareketlerinde islem ucreti alinmaktadir!)");
+			printf("\n1-Garanti Bankasi\n2-Yapi Kredi\n3-Is Bankasi\n4-Vakif Bank\n5-Ziraat Bankasi\n");
+			scanf("%d",&bankasec);
+			if(bankasec==1){				
+				printf("Gonderim yapilan kisinin hesap no giriniz:");
+			    scanf("%d",&hesapno);
+				printf("EFT yapmak istediginiz miktari giriniz:\n");
+			    scanf("%f",&x);
+			    printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",eft(x));
+				}
+			else if(bankasec==2){
+				printf("Gonderim yapilan kisinin hesap no giriniz:");
+			    scanf("%d",&hesapno);
+				printf("EFT yapmak istediginiz miktari giriniz:\n");
+			    scanf("%f",&x);
+			    printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",eft(x));
+				}
+			else if(bankasec==3){
+			    printf("Gonderim yapilan kisinin hesap no giriniz:");
+			    scanf("%d",&hesapno);
+				printf("EFT yapmak istediginiz miktari giriniz:\n");
+			    scanf("%f",&x);
+			    printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",eft(x));
+				}
+			else if(bankasec==4){
+				printf("Gonderim yapilan kisinin hesap no giriniz:");
+			    scanf("%d",&hesapno);
+				printf("EFT yapmak istediginiz miktari giriniz:\n");
+			    scanf("%f",&x);
+			    printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",eft(x));
+				}	
+			else if(bankasec==5){
+				printf("Gonderim yapilan kisinin hesap no giriniz:");
+			    scanf("%d",&hesapno);
+				printf("EFT yapmak istediginiz miktari giriniz:\n");
+			    scanf("%f",&x);
+			    printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",eft(x));
+				}
+			else{
+			printf("Gecersiz tuslama yaptiniz menuye aktariliyorsunuz...");
+			}			
+			
+		}
+		else if(islem==4){
+			printf("Havale yapmak istediginiz miktari giriniz:\n");
+			scanf("%f",&x);
+			printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",havale(x));
+			
+		}
+		else if(islem==5){
+			printf("Almak istediginiz dolar miktarini giriniz:");
+			scanf("%f",&x);
+			yatirim=x*dolarkuru;
+			printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",dolaryatirim(x));
+			printf("\nYatiriminiz:%.2fTL ",yatirim);
+			
+		}
+		else if(islem==6){
+			printf("Almak istediginiz euro miktarini giriniz:");
+			scanf("%f",&x);
+			yatirim=x*eurokuru;
+			printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",euroyatirim(x));
+			printf("Yatiriminiz:%.2fTL ",yatirim);
+			
+		}
+		else if(islem==7){
+			printf("Almak istediginiz altin gramini giriniz:");
+			scanf("%f",&x);
+			yatirim=x*graltin;
+			printf("Isleminiz basariyla gerceklestirildi.\nKalan bakiyeniz:%dTL",gryatirim(x));
+			printf("\nYatiriminiz:%.2fTL ",yatirim);
+			
+			
+		}
+		else if(islem==8){
+			printf("Bakiyeniz:%d",bakiye);
+			
+		}
+		
+		else{printf("Iyi gunler dileriz.");
+		return 0;
+		}
+	}while(islem ==1);	
+
+	return 0;
+}
